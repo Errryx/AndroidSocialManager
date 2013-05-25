@@ -20,5 +20,11 @@ To make use of this library you should:
 4. Handle result in the SocialActionListener callback
 
 <b>Futher:</b>
+
 I'm planning to integrate some more platforms (like Weixin), and functions like sharing and get friends list.
 This project is far far far away from good, so if you got any idea please contact.
+
+<b>Important:</b>
+
+I do not own the source code of src_weibo nor src_renren, the src_weibo is under license:[License](https://github.com/Errryx/AndroidSocialManager/blob/master/License).
+Please inform me if posting these source codes here is breaking the original license, I will certainlly delete them from this respository.

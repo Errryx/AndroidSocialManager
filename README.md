@@ -19,9 +19,6 @@ To make use of this library you should:
 3. Perform actions using SocialManager#performAcion(Activity, Platform, Action, Bundle, SocialActionListener)
 4. Handle result in the SocialActionListener callback
 
-Note: The project has been exported using gradle, which means you have to upgrade your ADT to ver 22.0 or later
-
 <b>Futher:</b>
 I'm planning to integrate some more platforms (like Weixin), and functions like sharing and get friends list.
-This project is far far far away from good, so if you got any idea please contact me via e-mail eryx.kao@gmail.com,
-your suggestions will be greatly appreciated. 
+This project is far far far away from good, so if you got any idea please contact.

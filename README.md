@@ -14,21 +14,19 @@ to save efforts.
 
 To make use of this library you should:
 
-1. Make it as reference lib of your project, coz the lib of Renren refered to some resources
-2. Declare app_id or app_keys in your AndroidManifest.xml
-3. Get an instance of SocialManager with 
+  * Make it as reference lib of your project, coz the lib of Renren refered to some resources
+  * Declare app_id or app_keys in your AndroidManifest.xml
+  * Get an instance of SocialManager with 
 
 ``` java
   SocialManager.getInstance();
 ```
-
-4. Perform actions with
+  * Perform actions with
 
 ``` java
   SocialManager.performAcion(Activity, Platform, Action, Bundle, SocialActionListener);
 ```
-
-5. Handle result in the SocialActionListener callback
+  * Handle result in the SocialActionListener callback
 
 <b>Futher:</b>
 
@@ -37,4 +35,4 @@ This project is far far far away from good, so if you got any idea please contac
 
 <b>Important:</b>
 
-I do not own the source code of src_weibo nor src_renren, the src_weibo is under license:[License](https://github.com/Errryx/AndroidSocialManager/blob/master/License).
+I do not own the source code of src_weibo nor src_renren, the src_weibo is under license: [License](https://github.com/Errryx/AndroidSocialManager/blob/master/License).

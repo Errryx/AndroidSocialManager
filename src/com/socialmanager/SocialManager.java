@@ -114,7 +114,8 @@ public class SocialManager {
 	private PlatformAdapter getAdapter(Context context, Platform platform, SocialActionListener listener) {
 		PlatformAdapter adapter = adapterMap.get(platform);
 		if (adapter != null) {
-			adapter.setListener(listener);
+            if (listener != null)
+			    adapter.setListener(listener);
 			return adapter;
 		}
 

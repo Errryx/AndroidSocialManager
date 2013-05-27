@@ -25,7 +25,6 @@ import com.socialmanager.util.RenrenInfoKeeper;
 
 public class RenrenAdapter extends PlatformAdapter implements RenrenAuthListener {
 
-	private SocialActionListener listener = null;
 	private Renren renren = null;
 	
 	public RenrenAdapter(Context context) {

@@ -44,7 +44,6 @@ public class TencentQQAdapter extends PlatformAdapter implements IUiListener {
 	private static final String FIGUREURL_QQ_1 = "figureurl_qq_1";
 	private static final String FIGUREURL_QQ_2 = "figureurl_qq_2";
 	
-	private SocialActionListener listener = null;
 	private Tencent tencent = null;
 
 	public TencentQQAdapter(Context context) {

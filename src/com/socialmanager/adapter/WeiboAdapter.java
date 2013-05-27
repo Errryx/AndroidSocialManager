@@ -10,6 +10,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,7 +35,6 @@ import com.weibo.sdk.android.sso.SsoHandler;
 
 public class WeiboAdapter extends PlatformAdapter implements WeiboAuthListener {
 
-	private SocialActionListener listener = null;
 	private Weibo weibo = null;
 	private SsoHandler ssoHandler = null;
 	
@@ -60,17 +60,21 @@ public class WeiboAdapter extends PlatformAdapter implements WeiboAuthListener {
 	@Override
 	public void getUserInfo() {
 		UsersAPI api = new UsersAPI(WeiboAdapter.accessToken);
-		api.show(Long.parseLong(WeiboInfoKeeper.readUid(context)), uidRequestListener);
+        String id = WeiboInfoKeeper.readUid(context);
+        if (!TextUtils.isEmpty(id))
+		    api.show(Long.parseLong(id), uidRequestListener);
+        else if (listener != null)
+            listener.onActionFailed(Platform.PLATFORM_WEIBO, Action.ACTION_SHOW_USER, null);
 	}
 
 	@Override
 	public boolean isAuthorized() {
-		return WeiboAdapter.accessToken.isSessionValid();
+		return WeiboAdapter.accessToken != null && WeiboAdapter.accessToken.isSessionValid();
 	}
 
 	@Override
 	public void authorize(Activity activity) {
-		ssoHandler = new SsoHandler((Activity) context, weibo);
+		ssoHandler = new SsoHandler(activity, weibo);
 		ssoHandler.authorize(this);
 	}
 
@@ -83,6 +87,7 @@ public class WeiboAdapter extends PlatformAdapter implements WeiboAuthListener {
 	public void logout() {
 		AccountAPI api = new AccountAPI(accessToken);
 		api.endSession(endSessionRequestListener);
+        accessToken = null;
 		WeiboInfoKeeper.clear(context);
 	}
 
